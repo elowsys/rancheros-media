@@ -1,0 +1,17 @@
+rancher:
+  services:
+    sabnzbd:
+      image: linuxserver/sabnzbd
+      container_name: sabnzbd
+      restart: always
+      environment:
+        PUID: 1020
+        PGID: 1020
+        TZ: Europe/London
+      ports:
+        - 8080:8080
+        - 9090:9090
+      volumes:
+        - /mnt/nfs-1/sabnzbd:/config
+        - /mnt/nfs-1/sabnzbd/Downloads/complete:/downloads
+        - /mnt/nfs-1/sabnzbd/Downloads/incomplete:/incomplete-downloads #optional
